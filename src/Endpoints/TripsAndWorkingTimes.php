@@ -308,5 +308,36 @@ interface TripsAndWorkingTimes{
 		'optional' => ['driverno', 'driveruid', 'drivergroupname', 'drivergroupuid'],
 		'limits'   => [10, 60],
 	];
+	
+	/**
+	 * 4.8.14 showOptiDriveIndicator
+	 *
+	 * showOptiDriveIndicator shows the OptiDrive indicator per driver, the values of all its influencing 
+         * variables and the factors each of them is calculated from for a defined period. 
+         * The start and end of this period can be adjusted up to a maximum time frame of seven days within the last three months.
+         * The OptiDrive indicator for the defined period delivered by showOptiDriveIndicator is calculated from pre-aggregated values 
+         * per calendar day. The aggregated results produced by showOptiDriveIndicator are based on information for each driver 
+         * across multiple vehicles.
+	 *
+	 * Disclaimer:
+	 *
+	 * The remaining driving times supplied by TomTom are indicative and
+	 * are reliant upon the information being obtained from the tachograph and sent to
+	 * WEBFLEET via the onboard device installed in a vehicle. The algorithms used to
+	 * calculate the indicative remaining driving times are based on European driving time
+	 * legislation and it is you responsibility to verify remaining driving times and any
+	 * applicable national legislation.
+	 *
+	 * @param array $params
+	 *
+	 * @return \TomTom\Telematics\WebfleetResponse
+	 */
+	public function showOptiDriveIndicator(array $params = []):WebfleetResponse;
+
+	const showOptiDriveIndicator = [
+		'required' => [],
+		'optional' => ['driverno', 'driveruid', 'drivergroupname'],
+		'limits'   => [10, 60],
+	];
 
 }
